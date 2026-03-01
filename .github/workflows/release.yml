@@ -32,21 +32,31 @@ jobs:
       - name: Build Release APK
         run: ./gradlew assembleRelease
 
-      - name: Find and Rename APK
+      - name: Sign APK
+        uses: r0adkll/sign-android-release@v1
+        id: sign_app
+        with:
+          releaseDirectory: app/build/outputs/apk/release
+          signingKeyBase64: ${{ secrets.SIGNING_KEY }}
+          alias: ${{ secrets.ALIAS }}
+          keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
+          keyPassword: ${{ secrets.KEY_PASSWORD }}
+
+      - name: Find and Rename Signed APK
         run: |
-          # Find any APK in the release folder
-          APK_PATH=$(find app/build/outputs/apk/release -name "*.apk" | head -n 1)
-          if [ -z "$APK_PATH" ]; then
-            echo "Error: APK not found"
+          # Use the signed APK path from the previous step
+          SIGNED_APK="${{ steps.sign_app.outputs.signedReleaseFile }}"
+          if [ -z "$SIGNED_APK" ]; then
+            echo "Error: Signed APK not found"
             exit 1
           fi
-          echo "Found APK at $APK_PATH"
-          cp "$APK_PATH" document-scanner.apk
+          echo "Found Signed APK at $SIGNED_APK"
+          cp "$SIGNED_APK" document-scanner-signed.apk
 
       - name: Upload Release Artifact
         uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          files: document-scanner.apk
+          files: document-scanner-signed.apk
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
