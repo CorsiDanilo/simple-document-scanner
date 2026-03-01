@@ -1,7 +1,5 @@
 # Simple Document Scanner 📄✨
 
-![App Banner](file:///C:/Users/danil/.gemini/antigravity/brain/bc369c55-7de4-4bc0-b22b-72642d6c68e7/app_mockup_banner_1772374795128.png)
-
 A high-performance, modern Android application built to simplify document scanning, processing, and sharing. Powered by **Google Play Services ML Kit**, this app provides a seamless professional scanning experience directly on your device.
 
 ---
