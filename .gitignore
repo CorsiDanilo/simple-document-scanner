@@ -63,3 +63,6 @@ desktop.ini
 *.bak
 *.swp
 *~
+
+# Documentation
+.docgen-state.json
