@@ -10,7 +10,8 @@ A high-performance, modern Android application built to simplify document scanni
 
 ## 🚀 Features
 
-- **Inteligent Scanning**: Automatic document detection, perspective correction, and image enhancement using ML Kit.
+- **Intelligent Scanning**: Automatic document detection, perspective correction, and image enhancement using ML Kit.
+- **In-App Auto Updates**: Stays automatically up-to-date by securely fetching the latest releases directly from GitHub.
 - **Versatile Formats**: Export your documents as high-quality **PDFs** or **JPEG/PNG** images.
 - **Material You Design**: A beautiful, dynamic interface that adapts to your device theme, built entirely with **Jetpack Compose**.
 - **Effortless Sharing**: Integration with the native Android Share Sheet for quick delivery via email, cloud, or messaging.

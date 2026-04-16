@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.3] - 2026-04-16
+
+### Added
+- **In-App Auto Updater**: L'app si collega a GitHub all'avvio per verificare la presenza di nuove release. Se presenti, un popup informativo permette l'aggiornamento rapido in background.
+- **Pulizia Archiviazione Intelligente**: Durante l'avvio, l'applicazione svuota la cache di sistema rimuovendo gli script d'installazione scaricati e pacchetti APK obsoleti.
+
 ## [1.0.2] - 2026-04-15
 
 ### Fixed
